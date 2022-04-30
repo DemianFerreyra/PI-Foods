@@ -34,7 +34,11 @@ module.exports = (sequelize) => {
       }
     },
     instructions: {
-      type:DataTypes.STRING
+      type: DataTypes.JSON
+    },
+    image:{
+      type: DataTypes.TEXT,
+      defaultValue: "https://upload.wikimedia.org/wikipedia/commons/a/ae/FoodMeat.jpg"
     },
     createdindb:{
       type: DataTypes.BOOLEAN,

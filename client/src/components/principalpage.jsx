@@ -6,7 +6,7 @@ const PrincipalPage = () => {
   const cartas = [carta1, carta2];
   return (
     <div>
-      <div>
+      <div className="Cards">
         {cartas?.map((carta) => (
           <Card
             img={carta.img}

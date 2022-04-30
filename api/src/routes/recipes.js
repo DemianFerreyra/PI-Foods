@@ -15,7 +15,8 @@ const getApiData = async () =>{
               image: plate.image,
               diets: plate.diets,
               summary: plate.summary,
-              steps: plate.analyzedInstructions[0]?.steps
+              steps: plate.analyzedInstructions[0]?.steps,
+              diets: plate.diets
             }
           })
           return data 

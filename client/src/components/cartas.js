@@ -1,5 +1,5 @@
 export const carta1 =  {
-    img: "none",
+    img: "https://spoonacular.com/recipeImages/716426-312x231.jpg",
     score: 100,
     healthscore: 70,
     name: "brocoli",
@@ -7,7 +7,7 @@ export const carta1 =  {
     id: 10,
   }
 export const carta2 =  {
-    img: "none",
+    img: "https://spoonacular.com/recipeImages/716268-312x231.jpg",
     score: 80,
     healthscore: 90,
     name: "pizza",

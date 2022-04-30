@@ -4,6 +4,7 @@ import LandingPage from './components/landingpage';
 import PrincipalPage from './components/principalpage';
 //importar estilos
 import './styles/landingpage.css'
+import './styles/cards.css'
 
 function App() {
   return (
