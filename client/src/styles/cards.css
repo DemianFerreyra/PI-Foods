@@ -1,9 +1,11 @@
 .Cards{
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, min(32vw));
+    justify-content: center;
 }
 .Card{
-    margin: 5vw;
+    margin-top: 3vw;
     background-color: rgb(202, 202, 202);
     width: 30vw;
     height: 50vw;

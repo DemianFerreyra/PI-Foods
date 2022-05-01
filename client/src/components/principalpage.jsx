@@ -1,20 +1,27 @@
 import React from "react";
 import Card from "./card";
-import { carta1, carta2 } from "./cartas";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllFoods } from "../actions";
 
 const PrincipalPage = () => {
-  const cartas = [carta1, carta2];
+  const dispatch = useDispatch();
+  const allRecipes = useSelector((state) => state.recipes);
+
+  React.useEffect(() => {
+    dispatch(GetAllFoods());
+  }, []);
+
   return (
     <div>
       <div className="Cards">
-        {cartas?.map((carta) => (
+        {allRecipes?.map((recipe) => (
           <Card
-            img={carta.img}
-            score={carta.score}
-            healthscore={carta.healthscore}
-            name={carta.name}
-            desc={carta.desc}
-            id={carta.id}
+            image={recipe.image}
+            title={recipe.title}
+            spoonacularScore={recipe.spoonacularScore}
+            healthScore={recipe.healthScore}
+            summary ={recipe.summary}
+            id ={recipe.id}
           />
         ))}
       </div>
