@@ -13,18 +13,25 @@ const PrincipalPage = () => {
 
   return (
     <div>
-      <div className="Cards">
-        {allRecipes?.map((recipe) => (
-          <Card
-            image={recipe.image}
-            title={recipe.title}
-            spoonacularScore={recipe.spoonacularScore}
-            healthScore={recipe.healthScore}
-            summary ={recipe.summary}
-            id ={recipe.id}
-          />
-        ))}
-      </div>
+      {allRecipes.length === 0 ? (
+        <div className="pizza" style={{ marginTop: "25%", marginLeft: "45%" }}>
+          <img src={require("../icons/pizza.svg").default} alt="pizza" />
+          <p>loading...</p>
+        </div>
+      ) : (
+        <div className="Cards">
+          {allRecipes?.map((recipe) => (
+            <Card
+              image={recipe.image}
+              title={recipe.title}
+              spoonacularScore={recipe.spoonacularScore}
+              healthScore={recipe.healthScore}
+              diets={recipe.diets.join(", ")}
+              id={recipe.id}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

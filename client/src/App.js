@@ -3,9 +3,12 @@ import { BrowserRouter } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./components/landingpage";
 import PrincipalPage from "./components/principalpage";
+import Detail from "./components/detail";
 //importar estilos
 import "./styles/landingpage.css";
 import "./styles/cards.css";
+import "./styles/loader.css"
+import "./styles/principalpage.css"
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route exact path="/inicio" element={<PrincipalPage />} />
+          <Route exact path="/recipes/:id" element={<Detail />} />
         </Routes>
       </div>
     </BrowserRouter>

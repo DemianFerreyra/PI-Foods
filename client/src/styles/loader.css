@@ -1,0 +1,15 @@
+.pizza{
+    width: 6vw;
+    height: 6vw;
+}
+.pizza img{
+    animation: round_round 1s infinite steps(12);
+}
+@keyframes round_round{
+    from {
+        transform: translate(0vw, -4vw) scale(3) rotate(0deg);;
+    }
+    to {
+        transform: translate(0vw, -4vw) scale(3) rotate(360deg);; 
+    }
+}

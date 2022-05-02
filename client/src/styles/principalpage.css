@@ -1,0 +1,48 @@
+.Detail{
+    display: flex;
+    flex-direction: row; 
+    height: 100%;
+    justify-content: center;
+    gap: 10vw;
+}
+.Left{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.Right .imagecontainer{
+  background-color: aqua;
+  width: 40vw;
+  height: 25vw;
+  overflow: hidden;
+  object-fit: cover;
+}
+.Right{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.Right ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-Style: none;
+    font-size: 2.4vw;
+    color: azure;
+    font-weight: 600;
+    background-color: rgb(235, 187, 255);
+    border-radius: 0.3vw;
+}
+.Detailbutton{
+    color: white;
+    font-size: 2.5vw;
+    background-color: rgb(222, 76, 66);
+    width: 35vw;
+    height: 4vw;
+}
