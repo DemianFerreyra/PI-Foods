@@ -57,7 +57,7 @@ router.post("/recipes", async (req, res) => {
     summary,
     spoonacularScore,
     healthScore,
-    instructions,
+    steps,
     image,
     diets,
   } = req.body;
@@ -67,7 +67,7 @@ router.post("/recipes", async (req, res) => {
     summary,
     spoonacularScore,
     healthScore,
-    instructions,
+    steps,
     image
   });
 

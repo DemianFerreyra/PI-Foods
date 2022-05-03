@@ -1,4 +1,5 @@
 .App {
+  background-color: rgb(242,242,242);
   text-align: center;
 }
 
@@ -26,6 +27,23 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.SimpleNavBar{
+  width: 100vw;
+  height: 10vh;
+  background-color: rgb(27,27,27);
+}
+.NavBarButton{
+  font-size: 2.5vh;
+  text-decoration: none;
+  color: white;
+  margin-left: 2vh;
+  padding: 2vh 3vh;
+  border-right: 2px solid rgba(0, 0, 0, 0.24);
+}
+.NavBarButton:hover{
+  background-color: rgba(0, 0, 0, 0.171);
 }
 
 @keyframes App-logo-spin {

@@ -1,31 +1,42 @@
+.DetailZone{
+    display: flex;
+    flex-direction: column; 
+    gap: 5vh;
+}
 .Detail{
+    height: 100vh;
     display: flex;
     flex-direction: row; 
-    height: 100%;
     justify-content: center;
     gap: 10vw;
 }
 .Left{
     width: 40%;
-    height: 100%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
+.Left h1{
+    font-size: 2vw;
+}
+.Left p{
+    text-align: left;
+    font-size: 1vw;
+}
 .Right .imagecontainer{
-  background-color: aqua;
   width: 40vw;
-  height: 25vw;
+  height: 30vw;
   overflow: hidden;
   object-fit: cover;
 }
 .Right{
     width: 40%;
-    height: 100%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 .Right ul li{
@@ -34,7 +45,7 @@
     justify-content: center;
     list-Style: none;
     font-size: 2.4vw;
-    color: azure;
+    color: rgb(27, 27, 27);
     font-weight: 600;
     background-color: rgb(235, 187, 255);
     border-radius: 0.3vw;
@@ -45,4 +56,11 @@
     background-color: rgb(222, 76, 66);
     width: 35vw;
     height: 4vw;
+}
+.steps{
+    height: 20vw;
+    overflow-y: scroll;
+}
+.steps li{
+    text-align: left;
 }

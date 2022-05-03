@@ -7,7 +7,6 @@ const getApiData = async () =>{
     const URL = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIKEY3}&addRecipeInformation=true&number=10`)
     try {
         const data = await URL.data.results.map(plate => {
-            console.log(plate.analyzedInstructions[0]?.steps)
             return{
               spoonacularScore: plate.spoonacularScore,
               healthScore : plate.healthScore,
