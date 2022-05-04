@@ -11,18 +11,16 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-//Recetas por query
+//Recetas
 router.get("/recipes", async (req, res) => {
-  let {name} = req.query;
-  console.log('nombre',name)
+  const name =  req.query;
   const recipes = await getFoodInfo();
   try {
-    if (name) {   
-      let filteredrecipes = await recipes.filter((food) =>
-        food.title.toLowerCase().includes(name.toLowerCase())
-      );
+    if (name.search) {   
+      let filteredrecipes = await recipes.filter(food =>
+        food.title.toLowerCase().includes(name.search.toLowerCase()));
 
-      if (filteredrecipes.length > 1) {
+      if (filteredrecipes.length >= 1) {
         res.status(200).send(filteredrecipes);
       } else {
         res.status(404).send("No encontramos ese platillo");

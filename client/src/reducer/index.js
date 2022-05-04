@@ -16,6 +16,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         recipe: action.payload,
       };
+    case "ResetDetail":
+      return{
+        ...state,
+        recipe: [],
+      }
+    case "ResetRecipes":
+        return{
+          ...state,
+          recipes: [],
+        }
     default:
       return state;
   }
