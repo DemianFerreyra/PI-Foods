@@ -21,6 +21,14 @@ export const SearchFoods = (search) =>{
     dispatch({type: "GetFoods", payload: allfoods.data})
   }
 }
+
+export const GetAllDiets = () =>{
+  return async function (dispatch) {
+    const diets = await axios.get("http://localhost:3002/diets");
+    dispatch({type: "GetDiets", payload: diets.data})
+  }
+}
+
 export const ResetDetail = function () {
   return {
     type: 'ResetDetail'

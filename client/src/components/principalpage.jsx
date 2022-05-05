@@ -3,10 +3,11 @@ import Card from "./card";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllFoods, ResetDetail, ResetRecipes, SearchFoods } from "../actions";
 import { Link } from "react-router-dom";
+import SearchBar from "./searchbar";
 
 const PrincipalPage = () => {
   const dispatch = useDispatch();
-  const allRecipes = useSelector((state) => state.recipes);
+  const allRecipes = useSelector((state) => state.filteredrecipes);
 
   React.useEffect(() => {
     dispatch(GetAllFoods());
@@ -32,17 +33,15 @@ const PrincipalPage = () => {
         <div>
           <div className="SimpleNavBar" style={{display: "flex", alignItems: "center", justifyContent: 'space-between',}}>
             <Link to="/Create">
-              <a href="#" className="NavBarButton">
-                Create recipe
-              </a>
+              <a href="#" className="NavBarButton">Create recipe</a>
             </Link>
-              <a href="#" className="NavBarButton">
-                Filter by
-              </a>
+              <a href="#" className="NavBarButton">Filter by</a>
               <form onSubmit={handleSubmit}>
                 <input  type="text" style={{marginRight: '4vw', width: '20vw', height: '4vh'}} id="Searchbar"/>
               </form>
-              
+          </div>
+          <div className="ExtendedNavBar">
+           <SearchBar/>
           </div>
           <div className="Cards">
             {allRecipes?.map((recipe) => (
