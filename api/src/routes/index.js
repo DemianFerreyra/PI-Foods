@@ -13,7 +13,7 @@ const router = Router();
 
 //Recetas
 router.get("/recipes", async (req, res) => {
-  const name =  req.query;
+  const name =  req.query;  //localhost:3000/recipes?search={name viene de aca}
   const recipes = await getFoodInfo();
   try {
     if (name.search) {   

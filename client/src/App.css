@@ -45,6 +45,15 @@
 .NavBarButton:hover{
   background-color: rgba(0, 0, 0, 0.171);
 }
+.FilterBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(46, 45, 45);
+  height: 1.5vw;
+  padding: 1vw;
+  width: 100vw;
+}
 
 @keyframes App-logo-spin {
   from {

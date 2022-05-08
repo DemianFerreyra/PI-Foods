@@ -30,9 +30,10 @@ function rootReducer(state = initialState, action) {
         recipe: [],
       };
     case "ResetRecipes":
+      console.log('reseteo de recetas')
       return {
         ...state,
-        recipes: [],
+        filteredrecipes: [],
       };
     case "FilteredFoods":
       console.log('filtered', action.payload)

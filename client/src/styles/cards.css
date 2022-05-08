@@ -5,6 +5,7 @@
     justify-content: center;
 }
 .Card{
+    background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.473);
     margin-top: 3vw;
     width: 25vw;

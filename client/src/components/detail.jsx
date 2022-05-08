@@ -10,6 +10,7 @@ const Detail = () => {
   const [slideIndex, setSlideIndex] = useState(1);
   let Button = document.getElementById("Detailbutton");
 
+  
   React.useEffect(() => {
     dispatch(GetDetail(id.id));
   }, []);
@@ -31,7 +32,7 @@ const Detail = () => {
   return (
     <div style={{height: "100vh", overflow: 'hidden' }}>
       {detail.length === 0 ? (
-        <div className="pizza" style={{ marginTop: "25%", marginLeft: "45%" }}>
+        <div className="pizza">
           <img src={require("../icons/pizza.svg").default} alt="pizza" />
           <p>loading...</p>
         </div>

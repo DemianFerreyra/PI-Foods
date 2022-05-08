@@ -1,14 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FilterBy } from "../helperfunctions/select.jsx";
+import { ResetRecipes } from "../actions/index.js";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes)
+  const frecipes = useSelector((state) => state.filteredrecipes)
+
 
   async function handleChange(event){
-    let filter = await FilterBy(event.target.id, event.target.value, recipes);
-    let actiondis = dispatch({type: "FilteredFoods", payload: filter})
+    event.preventDefault();
+    console.log(event.target.value)
+    let filter = await FilterBy(event.target.id, event.target.value, recipes, frecipes);
+    dispatch(ResetRecipes())
+    dispatch({type: "FilteredFoods", payload: filter})
   }
   return (
     <div className="FilterBar">
