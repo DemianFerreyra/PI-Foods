@@ -64,3 +64,21 @@
 .steps li{
     text-align: left;
 }
+.Paginate{
+    display: flex;
+    flex-direction: row;
+}
+.Page{
+    border: none;
+    color: white;
+    width: 2vw;
+    height: 2vw;
+    background-color: rgb(49, 49, 49);
+}
+.PaginateZone{
+    margin-top: 2vw;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}

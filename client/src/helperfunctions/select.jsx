@@ -1,10 +1,9 @@
-import { useDispatch } from "react-redux";
-
 
 //hacer un arreglo donde se mapeen todos los filtros que llegan desde el estado de searchbar, guardando solo aquellos que cumplan la condicion de no ser nulos.
 //luego aplicar un filter donde se verifiquen cada uno de ellos
 export const FilterBy = (event, value, recipes, frecipes) =>{
     let filteredrecipes = [];
+    
 
     //filtrado por alfabeto
     if(event === 'alphabet'){
@@ -72,13 +71,14 @@ export const FilterBy = (event, value, recipes, frecipes) =>{
     if(event === 'createdindb'){
       console.log('filtrado por created')
       console.log(value)
-      if(value === 'ALL'){
-        filteredrecipes = frecipes;
+      if(value === 'All'){
+        filteredrecipes = recipes;
       }else if(value === 'DATABASE only'){
         filteredrecipes = frecipes.filter((recipe) => recipe.hasOwnProperty('createdindb'))
       }else if(value === 'API only'){
         filteredrecipes = frecipes.filter((recipe) => !recipe.hasOwnProperty('createdindb'))
       }
     }
-    return filteredrecipes
+
+      return filteredrecipes;
 }

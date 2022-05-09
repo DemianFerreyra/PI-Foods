@@ -19,7 +19,7 @@ const Card = ({image, spoonacularScore, healthScore, diets, title, id}) => {
          <ul>
              <li style={{listStyle: 'none', fontSize: '1.7vw', fontWeight: '600', height: '5vw'}}>{title}</li>
              <li style={{listStyle: 'none', height: '4.5vw',fontSize: '1.3vw', wordBreak: 'keep-all', color: 'rgb(50,50,50)'}}>diets: {diets}</li>
-             <Link to={`/recipes/${id}`}>
+             <Link to={`/recipes/${id}`} style={{textDecoration: 'none'}}>
                <li style={{listStyle: 'none', width: "100%", height: '3.5vw', backgroundColor: 'rgb(222, 76, 66)', fontSize: '2.5vw', color: "white"}} className="KnowMore">Know more</li>
              </Link>
          </ul>

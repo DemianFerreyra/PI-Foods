@@ -17,8 +17,19 @@ export const GetDetail = (id) =>{
 
 export const SearchFoods = (search) =>{
   return async function (dispatch) {
-    const allfoods = await axios.get(`http://localhost:3002/recipes?search=${search}`);
-    dispatch({type: "GetFoods", payload: allfoods.data})
+    try {
+      const allfoods = await axios.get(`http://localhost:3002/recipes?search=${search}`);
+      if(allfoods.data.length === 0){
+        console.log('b',allfoods)
+        dispatch({type: "Error", payload: 'We cant find what you were looking for :('})
+      }else{
+        console.log('a',allfoods)
+        dispatch({type: "GetFoods", payload: allfoods.data})
+      }  
+    } catch (error) {
+      dispatch({type: "Error", payload: 'We cant find what you were looking for :('})
+    }
+    
   }
 }
 
@@ -28,7 +39,16 @@ export const GetAllDiets = () =>{
     dispatch({type: "GetDiets", payload: diets.data})
   }
 }
-
+export const FilterFoods = (filtered) =>{
+  console.log('filtrado actions',filtered)
+  return async function (dispatch) {
+    if(filtered.length > 0){
+      dispatch({type: "FilteredFoods", payload: filtered})
+    }else{
+      dispatch({type: "Error", payload: 'We cant find what you were looking for :('})
+    }
+  }
+}
 export const ResetDetail = function () {
   return {
     type: 'ResetDetail'

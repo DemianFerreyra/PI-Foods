@@ -3,6 +3,7 @@ const initialState = {
   recipe: [],
   diets: [],
   filteredrecipes: [],
+  error: '',
 };
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -11,6 +12,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         recipes: action.payload,
         filteredrecipes: action.payload,
+        error: '',
       };
     case "GetDiets":
       console.log(action.payload);
@@ -40,6 +42,13 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         filteredrecipes: action.payload,
+        error: '',
+      };
+    case "Error":
+      console.log('error', action.payload)
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
