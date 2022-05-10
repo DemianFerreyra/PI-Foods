@@ -39,6 +39,12 @@ export const GetAllDiets = () =>{
     dispatch({type: "GetDiets", payload: diets.data})
   }
 }
+export const PostRecipe = (recipe) =>{
+  return async function () {
+    const recipeDB = await axios.post("http://localhost:3002/recipes", recipe);
+    return recipeDB
+  }
+}
 export const FilterFoods = (filtered) =>{
   console.log('filtrado actions',filtered)
   return async function (dispatch) {

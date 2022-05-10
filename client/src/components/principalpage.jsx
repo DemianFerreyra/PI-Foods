@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import Card from "./card";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  GetAllFoods,
-  ResetDetail,
-  ResetRecipes,
-  SearchFoods,
-} from "../actions";
+import { GetAllFoods, ResetDetail, ResetRecipes, SearchFoods, } from "../actions";
 import { Link } from "react-router-dom";
 import SearchBar from "./searchbar";
 

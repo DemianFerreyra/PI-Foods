@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
-import { GetAllDiets } from "../actions";
+import { GetAllDiets, PostRecipe } from "../actions";
 
 const CreatePage = () => {
   const dispatch = useDispatch();
@@ -72,6 +72,7 @@ const CreatePage = () => {
     e.preventDefault();
     if(Object.values(Errors).every(key => key === null || key === '')){
       console.log('subido correctamente')
+      dispatch(PostRecipe(Recipe));
     }else{
       console.log('no se puede subir')
     }
