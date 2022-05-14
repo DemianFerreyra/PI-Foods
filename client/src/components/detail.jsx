@@ -50,6 +50,9 @@ const Detail = () => {
               <div className="summary">
                 <p style={{ marginBottom: "5vw" }}>{detail[0].summary}</p>
                 <p>Diets: {detail[0].diets.join(", ")}</p>
+                {
+                  detail[0].dishTypes?(<p>Dish type/s: {detail[0].dishTypes.join(', ')}</p>):(console.log('no dishtype'))
+                }
               </div>
             ) : (
               <div className="steps">

@@ -33,8 +33,8 @@ module.exports = (sequelize) => {
         max: 100
       }
     },
-    instructions: {
-      type: DataTypes.JSON
+    steps: {
+      type: DataTypes.ARRAY(DataTypes.JSON)
     },
     image:{
       type: DataTypes.TEXT,

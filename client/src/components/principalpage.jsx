@@ -46,21 +46,12 @@ const PrincipalPage = () => {
       setPage(event.target.innerHTML);
     }
   }
-
+  function handleRefresh(){
+    window.location.reload();
+  }
   return (
     <div>
-      <div
-        className="SimpleNavBar"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          position: "sticky",
-          top: "0",
-          zIndex: "10",
-          marginBottom: "5vh",
-        }}
-      >
+      <div className="SimpleNavBar" style={{display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: "0", zIndex: "10", marginBottom: "5vh"}}>
         <Link to="/create" style={{ textDecoration: "none" }}>
           <a href="#" className="NavBarButton">
             Create recipe
@@ -69,19 +60,18 @@ const PrincipalPage = () => {
         <a href="#" className="NavBarButton" onClick={handleClick} id="Slide">
           Filter by
         </a>
+        <a href="#" className="NavBarButton" onClick={handleRefresh} id="Slide">
+          Refresh all
+        </a>
+        {
+          allRecipes.length > 1?(<h1 style={{color: 'white'}}>recetas totales= {allRecipes.length}</h1>):(console.log('no hay recetas'))
+        }
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            style={{ marginRight: "4vw", width: "20vw", height: "4vh" }}
-            id="Searchbar"
-          />
+          <input type="text" style={{ marginRight: "4vw", width: "20vw", height: "4vh" }} id="Searchbar"/>
+          <img src={require("../icons/search.svg").default} alt="searchicon" style={{position: 'absolute', right: '5vw', top: '4vh'}}/>
         </form>
       </div>
-      <div
-        className="ExtendedNavBar"
-        id="FilterBar"
-        style={{ position: "absolute", top: "0" }}
-      >
+      <div className="ExtendedNavBar" id="FilterBar" style={{ position: "absolute", top: "0" }}>
         <SearchBar />
       </div>
       {notFind.length === 0 ? (
@@ -114,11 +104,7 @@ const PrincipalPage = () => {
                 <ul className="Paginate">
                   {[...Array(Math.ceil(allRecipes.length / 9))].map(
                     (e, index) => (
-                      <button
-                        onClick={handleClick}
-                        id="Paginate"
-                        className="Page"
-                      >
+                      <button onClick={handleClick} id="Paginate" className="Page">
                         {index}
                       </button>
                     )
@@ -129,7 +115,7 @@ const PrincipalPage = () => {
           )}
         </div>
       ) : (
-        <div>
+        <div style={{marginTop: '10vw'}}>
           <h1>{notFind}</h1>
         </div>
       )}

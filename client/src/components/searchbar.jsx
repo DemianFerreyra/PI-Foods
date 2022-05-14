@@ -18,13 +18,9 @@ const SearchBar = () => {
   }
   return (
     <div className="FilterBar">
-      <select onChange={handleChange} id="createdindb">
-        <option>All</option>
-        <option>API only</option>;
-        <option>DATABASE only</option>;
-      </select>
-      <select onChange={handleChange} id="diets">
-        <option>Select Diet...</option>
+      <select onChange={handleChange} defaultValue="Diets..." id="diets">
+        <option disabled>Diets...</option>
+        <option>All Diets</option>
         <option>Paleolithic</option>;
         <option>Lacto ovo vegetarian</option>;
         <option>Dairy free</option>;
@@ -36,11 +32,13 @@ const SearchBar = () => {
         <option>Whole 30</option>;
         <option>Ketogenic</option>;
       </select>  
-      <select onChange={handleChange} id="score">
-        <option>General score</option>
+      <select onChange={handleChange} defaultValue="Score..." id="score">
+        {/* <option>General score</option> */}
+        <option disabled>Score...</option>;
         <option>Health score</option>;
       </select>
-      <select onChange={handleChange} id="alphabet">
+      <select onChange={handleChange} defaultValue="Alphabetically..." id="alphabet">
+        <option disabled>Alphabetically...</option>;
         <option>A-Z</option>
         <option>Z-A</option>;
       </select>

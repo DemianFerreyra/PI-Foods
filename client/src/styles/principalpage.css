@@ -11,6 +11,8 @@
     gap: 10vw;
 }
 .Left{
+    background-color: rgb(242,242,242);
+    padding: 1vw;
     width: 40%;
     height: 80vh;
     display: flex;
@@ -32,6 +34,8 @@
   object-fit: cover;
 }
 .Right{
+    background-color: rgb(242,242,242);
+    padding: 1vw;
     width: 40%;
     height: 80vh;
     display: flex;
@@ -58,6 +62,7 @@
     height: 4vw;
 }
 .steps{
+    width: 80%;
     height: 20vw;
     overflow-y: scroll;
 }
@@ -65,6 +70,7 @@
     text-align: left;
 }
 .Paginate{
+    gap: 0.5vw;
     display: flex;
     flex-direction: row;
 }
@@ -75,7 +81,11 @@
     height: 2vw;
     background-color: rgb(49, 49, 49);
 }
+.Page:hover{
+    transform: scale(1.1);
+}
 .PaginateZone{
+    gap: 1vw;
     margin-top: 2vw;
     display: flex;
     width: 100%;

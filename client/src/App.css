@@ -1,6 +1,6 @@
 .App {
   min-height: 100vh;
-  background-color: rgb(242,242,242);
+  background: black url('./images/background.jpg');
   text-align: center;
 }
 
@@ -54,6 +54,14 @@
   height: 1.5vw;
   padding: 1vw;
   width: 100vw;
+}
+.FilterBar select{
+  border: none;
+  height: 1.8vw;
+  font-size: 0.7vw;
+}
+.ExtendedNavBar{
+  transition: all .3s;
 }
 
 @keyframes App-logo-spin {

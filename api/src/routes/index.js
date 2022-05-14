@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { getFoodInfo } = require("./recipes");
 const axios = require("axios");
 const {Recipe, Diet} = require("../db");
-const { APIKEY, APIKEY2 } = process.env;
+const { APIKEY, APIKEY2, APIKEY3, APIKEY4, APIKEY5, APIKEY6 } = process.env;
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -19,7 +19,6 @@ router.get("/recipes", async (req, res) => {
     if (name.search) {   
       let filteredrecipes = await recipes.filter(food =>
         food.title.toLowerCase().includes(name.search.toLowerCase()));
-
       if (filteredrecipes.length >= 1) {
         res.status(200).send(filteredrecipes);
       } else {
@@ -35,7 +34,7 @@ router.get("/recipes", async (req, res) => {
 
 //Receta por id
 router.get("/recipes/:id", async (req, res) =>{
-  const id = req.params.id;
+  const id = req.params.id; 
   const totalRecipes = await getFoodInfo();
   if(id){
     let recipeByID = await totalRecipes.filter(plate => plate.id == id)
@@ -50,6 +49,7 @@ router.get("/recipes/:id", async (req, res) =>{
 
 //Creacion de receta
 router.post("/recipes", async (req, res) => {
+  console.log('request', req.body);
   let {
     title,
     summary,
@@ -58,6 +58,7 @@ router.post("/recipes", async (req, res) => {
     steps,
     image,
     diets,
+    dishTypes,
   } = req.body;
 
   let recipeCreated = await Recipe.create({
@@ -66,14 +67,18 @@ router.post("/recipes", async (req, res) => {
     spoonacularScore,
     healthScore,
     steps,
-    image
+    image,
+    dishTypes,
   });
 
-  let dietsDB = await Diet.findAll({
-    where: { name: diets },
+  diets.forEach(async (e) => {
+    let dietsDB = await Diet.findAll({
+      where: { name: e.toLowerCase() },
+    });
+    await recipeCreated.addDiets(dietsDB);
   });
-  recipeCreated.addDiet(dietsDB);
-  res.send("Receta creada correctamente");
+  console.log('response', recipeCreated);
+  res.json(recipeCreated);
 });
 
 //Traemos las dietas de la API y la guardamos en la db
@@ -81,8 +86,8 @@ router.get("/diets", async (req, res) => {
   const dietsAPI = await axios.get(
     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIKEY2}&addRecipeInformation=true&number=100`
   );
-  const diets = dietsAPI.data.results.map((plate) => plate.diets);
-  const eachDiet = diets.flat().concat("Vegetarian", "Ketogenic");
+  const diets = dietsAPI.data?.results.map((plate) => plate.diets);
+  const eachDiet = diets.flat().concat("vegetarian", "ketogenic");
   const allDiet = [...new Set(eachDiet)];
 
   for (const diet in allDiet) {

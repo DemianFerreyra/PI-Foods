@@ -34,7 +34,7 @@ export const FilterBy = (event, value, recipes, frecipes) =>{
 
     //filtrado por dietas
     if(event === 'diets'){
-      if(value === 'Select Diet...'){
+      if(value === 'All Diets'){
         filteredrecipes = recipes;
       }else{
         filteredrecipes = recipes.filter((recipe) => recipe.diets.includes(value.toLowerCase()))
@@ -67,18 +67,6 @@ export const FilterBy = (event, value, recipes, frecipes) =>{
         })
       }
     }
-    //filtrado por api/database
-    if(event === 'createdindb'){
-      console.log('filtrado por created')
-      console.log(value)
-      if(value === 'All'){
-        filteredrecipes = recipes;
-      }else if(value === 'DATABASE only'){
-        filteredrecipes = frecipes.filter((recipe) => recipe.hasOwnProperty('createdindb'))
-      }else if(value === 'API only'){
-        filteredrecipes = frecipes.filter((recipe) => !recipe.hasOwnProperty('createdindb'))
-      }
-    }
-
-      return filteredrecipes;
+  
+    return filteredrecipes;
 }

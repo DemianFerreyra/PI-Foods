@@ -14,26 +14,26 @@
     justify-content: center;
     grid-auto-flow: column;
     width: 30vw;
-    height: 35vw;
+    height: 38vw;
 }
 .Form input{
   color: rgb(8, 8, 8);
-  font-size: 1.2vw;
+  font-size: 0.7vw;
   font-weight: 600;
   border: none;
   background-color: rgb(210,210,210);
   margin: 1vw;
   width: 11vw;
-  height: 2.5vw;
+  height: 1.5vw;
 }
 .Form select{
     color: rgb(8,8,8, .60);
-    font-size: 1.2vw;
+    font-size: 0.7vw;
     font-weight: 600;
     border: none;
     margin: 1vw;
     width: 11vw;
-    height: 2.5vw;
+    height: 2vw;
 }
 .FormButton{
     color: white;
@@ -44,4 +44,32 @@
     height: 2vw;
     margin: 1vw;
     background-color: rgb(107, 222, 134);
+    transition: all .3s;
+}
+.FormButton:hover{
+    transform: scale(1.1);
+}
+.DietsZone{
+    justify-content: center;
+    width: 30vw;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+}
+.EachDiet{
+    margin-top: 0.5vw;
+    display: flex;
+    align-items: center;
+    border: 0.5vw solid rgb(210,210,210);
+    height: 0.3vw;
+    width: fit-content;
+    background-color: rgb(210,210,210);
+    transition: all .2s;
+}
+.EachDiet:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+    background-color: rgb(189, 30, 30);
+    border: 0.5vw solid rgb(189, 30, 30);
 }
